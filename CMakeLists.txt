@@ -208,15 +208,16 @@ add_library ( ${PROJECT_NAME} STATIC
   core/startup_stm32h750xx.c
 )
 
-target_compile_options( ${PROJECT_NAME} PUBLIC
+target_compile_options ( ${PROJECT_NAME} PUBLIC
   -Os
   -fvisibility=hidden
   $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
+  $<$<COMPILE_LANGUAGE:CXX>:-fno-unwind-tables>
   $<$<COMPILE_LANGUAGE:CXX>:-fvisibility-inlines-hidden>
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC
+target_include_directories ( ${PROJECT_NAME} PUBLIC
   Drivers/CMSIS/Include
   Drivers/CMSIS/Device/ST/STM32H7xx/Include
   Drivers/STM32H7xx_HAL_Driver/Inc
